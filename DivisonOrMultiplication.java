@@ -1,8 +1,8 @@
 /**
- * Lab04_Q3
+ * In this implementation you can choose to divide or multiplicate
  */
 import java.util.Scanner;
-public class Lab04_Q3 
+public class DivisonOrMultiplication 
 {
     public static void main(String[] args) 
     {
@@ -20,48 +20,48 @@ public class Lab04_Q3
             String choose = scn.next();
             int countOfProcess = 0;
                 
-                if (choose.equals(divison))
+            if (choose.equals(divison))
+            {
+                System.out.print("Enter the multiplier or divisor that is a multiple of two: ");
+                int a = scn.nextInt();
+                int b = (int)(Math.log(a) / Math.log(2)) ;
+                int divided = number >> b ;
+                
+                while (divided > 0)
                 {
-                    System.out.print("Enter the multiplier or divisor that is a multiple of two: ");
-                    int a = scn.nextInt();
-                    int b = (int)(Math.log(a) / Math.log(2)) ;
-                    int divided = number >> b ;
-                    
-                    while (divided > 0)
+                    int remainder = divided % 2;
+                    divided = divided / 2;
+                    countOfProcess++ ;
+                    if (remainder == 1)
                     {
-                        int remainder = divided % 2;
-                        divided = divided / 2;
-                        countOfProcess++ ;
-                        if (remainder == 1)
-                        {
-                            sum = sum + (int)Math.pow(10, (countOfProcess - 1)) ;
-                        }
+                        sum = sum + (int)Math.pow(10, (countOfProcess - 1)) ;
                     }
-                    
-                    System.out.println("0b" + sum);
                 }
                 
-                else if (choose.equals(multiplying))
-                {
-                    System.out.print("Enter the multiplier or divisor that is a multiple of two: ");
-                    int a = scn.nextInt();
-                    int b = (int)(Math.log(a) / Math.log(2)) ;
-                    int multiplied = number << b ;
+                System.out.println("0b" + sum);
+            }
+            
+            else if (choose.equals(multiplying))
+            {
+                System.out.print("Enter the multiplier or divisor that is a multiple of two: ");
+                int a = scn.nextInt();
+                int b = (int)(Math.log(a) / Math.log(2)) ;
+                int multiplied = number << b ;
 
-                    while (multiplied > 0)
+                while (multiplied > 0)
+                {
+                    int remainder = multiplied % 2;
+                    multiplied = multiplied / 2;
+                    countOfProcess++ ;
+                    if (remainder == 1)
                     {
-                        int remainder = multiplied % 2;
-                        multiplied = multiplied / 2;
-                        countOfProcess++ ;
-                        if (remainder == 1)
-                        {
-                            sum = sum + (int)Math.pow(10, (countOfProcess - 1));
-                        }
+                        sum = sum + (int)Math.pow(10, (countOfProcess - 1));
                     }
-                    
-                    System.out.println("0b" + sum);
                 }
-                sum = 0 ;
+                
+                System.out.println("0b" + sum);
+            }
+            sum = 0 ;
 
             System.out.print("Do you want to do another operation? 'y' (yes) or 'n' (no): ");
             String str = scn.next();
